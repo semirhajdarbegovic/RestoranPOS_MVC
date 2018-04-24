@@ -1,0 +1,81 @@
+﻿@using RestoranPOS.Areas.ModulRezervacija.Models
+@model RestoranPOS.Areas.ModulRezervacija.Models.RezervacijaViewModel
+
+
+
+
+@using (Html.BeginForm("PrikaziIzbrisane", "Rezervacija"))
+{
+    @Html.AntiForgeryToken()
+<div>
+<h4>Prikaz Rezervacija</h4>
+    <hr/>
+    <div class="container">
+        <form class="form-inline">
+            <div class="form-group">
+                <div class=" navbar-form">
+                    <div class="navbar-left">
+                        @Html.HiddenFor(model => model.StolId)
+                        @Html.LabelFor(model => model.PeriodOd, "Za datum:", htmlAttributes: new {@class = "control-label"})
+                        @Html.EditorFor(model => model.PeriodOd, new {htmlAttributes = new {@class = "form-control"}})
+                        @Html.ValidationMessageFor(model => model.PeriodOd, "", new {@class = "text-danger"})
+                        @Html.DropDownListFor(model => model.BrDana, Model.DaniOptions, new {@class = "form-control"})
+                        <input type="submit" value="Osvježi" class="btn btn-success"/>
+                        @Html.ActionLink("Poništi Odabir", "PrikaziProsle", null, new {@class = "btn btn-default", style = "margin: 2px"})
+                    </div>
+                    <div class="media-right">
+                        @Html.ActionLink("Dodaj", "Dodaj", null, new {@class = "btn btn-primary"})
+                        @Html.ActionLink("Kreiraj", "Kreiraj", null, new {@class = "btn btn-primary"})
+                    </div>
+                    <div class="navbar-right">
+                        @Html.ActionLink("Povratak", "Index", null, new { @class = "btn btn-warning"})
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<dl class="dl-horizontal">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Datum Rezervacije</th>
+            <th>Vrijeme Rezervacije</th>
+            <th>Rezervirao(username)</th>
+            <th>Na Ime</th>
+            <th>Broj Osoba</th>
+            <th>Broj Stola</th>
+            <th>Rezervacija Odobrena</th>
+        </tr>
+        </thead>
+
+        @foreach (RezervacijaViewModel.RezervacijaInfo x in Model.Rezervacije)
+        {
+            <tr>
+                <td>@x.DatumRezervacije.ToShortDateString()</td>
+                <td>@x.VrijemeRezervacije.ToShortTimeString()</td>
+                <td>@x.KorisnikUsername</td>
+                <td>@x.ImeRezervacije</td>
+                <td>@x.BrojOsoba</td>
+                <td>@x.BrojStola</td>
+                <td>@x.Odobrena</td>
+                <td>
+                    @Html.ActionLink("Vrati", "Vrati", new { rezervacijaId = x.Id }, new { @class = "btn btn-default", style = "margin: 2px" })
+                </td>
+            </tr>
+        }
+    </table>
+</dl>
+}
+
+<script type="text/javascript">
+    $(function() {
+        $('#PeriodOd').datetimepicker({
+            pickTime: false,
+            format: "DD/MM/YYYY",
+            maxDate: "1/1/2100",
+            minDate:"1/1/2012"
+        });
+    });
+</script>

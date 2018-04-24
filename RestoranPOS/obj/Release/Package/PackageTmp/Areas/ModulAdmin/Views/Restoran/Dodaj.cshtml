@@ -1,0 +1,17 @@
+﻿@using System.Web.UI.HtmlControls
+@model RestoranPOS.Areas.ModulAdmin.Models.RestoranDEViewModel
+
+@{
+    ViewBag.Title = "Dodaj";
+}
+    <div class="panel-body">
+        <h3 class="has-feedback">Nije pronađena prethodna postavka informacija o restoranu.</h3><br/>
+        <h3 class="help-block" style="margin-left: 20px">Da li želite dodati podatke sada?</h3>
+        <div class="btn-group-sm" style="margin-left: 60px; margin-top: 5px;">
+            <a href='@Url.Action("Uredi", new {restoranId = Model.Id})' class="btn btn-primary" style="width: 120px; height: 35px; margin-right: 10px;">Da</a>
+            <a href="/Index" class="btn btn-danger" style="width: 120px; height: 35px; margin-right: 10px;">Ne</a>
+        </div>
+    </div>
+
+
+

@@ -1,0 +1,289 @@
+﻿@using RestoranPOS.Models
+@model List<RestoranPOS.Models.Proizvod>
+
+
+    <!-- Slider container-->
+    <div class="slider-row">
+        <div class="tp-banner-container">
+            <div class="tp-banner">
+                <ul>
+                    <!-- SLIDE  -->
+                    <li data-transition="slidehorizontal" data-slotamount="1" data-masterspeed="1000" data-thumb="../../Images/bg.jpg" data-fstransition="fade" data-fsmasterspeed="1000" data-fsslotamount="7" data-saveperformance="off" data-title="Free on the Beach">
+                        <!-- MAIN IMAGE -->
+                        <img src="../../Images/bg.jpg" alt="video_woman_cover3" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat">
+                        <!-- LAYERS -->
+                        <!-- LAYER NR. 1 -->
+                        <div class="tp-caption tp-fade fadeout fullscreenvideo"
+                             data-x="0"
+                             data-y="0"
+                             data-speed="1000"
+                             data-start="1100"
+                             data-easing="Power4.easeOut"
+                             data-elementdelay="0.01"
+                             data-endelementdelay="0.1"
+                             data-endspeed="1500"
+                             data-endeasing="Power4.easeIn"
+                             data-autoplay="true"
+                             data-autoplayonlyfirsttime="false"
+                             data-nextslideatend="true"
+                             data-volume="mute" data-forcecover="1" data-aspectratio="16:9" data-forcerewind="on" style="z-index: 2;">
+                            <video class="" preload="none" width="100%" height="100%"
+                                   poster='../../Images/bg.jpg'>
+                                <source src="http://www.red-ferndevelopment.co.uk/NUVOVideo.webm" type="video/webm" />
+                            </video>
+                        </div>
+                        <!-- LAYER NR. 2 -->
+                        <div class="tp-caption gold_thin_white customin ltl tp-resizeme"
+                             data-x="490"
+                             data-y="180"
+                             data-customin="x:0;y:0;z:0;rotationX:90;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:50% 0%;"
+                             data-speed="1500"
+                             data-start="2600"
+                             data-easing="Power4.easeInOut"
+                             data-splitin="none"
+                             data-splitout="none"
+                             data-elementdelay="0.01"
+                             data-endelementdelay="0.1"
+                             data-endspeed="1000"
+                             data-endeasing="Power4.easeIn"
+                             style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;">
+                            Restoran
+                        </div>
+                        <!-- LAYER NR. 3 -->
+                        <div class="tp-caption white_thin customin ltl tp-resizeme"
+                             data-x="420"
+                             data-y="138"
+                             data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                             data-speed="1500"
+                             data-start="1100"
+                             data-easing="Power4.easeOut"
+                             data-splitin="chars"
+                             data-splitout="none"
+                             data-elementdelay="0.1"
+                             data-endelementdelay="0.1"
+                             data-endspeed="1000"
+                             data-endeasing="Power4.easeIn"
+                             style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">
+                            Dobro došli na stranicu
+
+                        </div>
+                        <!-- LAYER NR. 6 -->
+                        <div class="tp-caption white_thin customin ltl tp-resizeme"
+                             data-x="410"
+                             data-y="260"
+                             data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                             data-speed="1500"
+                             data-start="1700"
+                             data-easing="Power4.easeOut"
+                             data-splitin="chars"
+                             data-splitout="none"
+                             data-elementdelay="0.1"
+                             data-endelementdelay="0.1"
+                             data-endspeed="1000"
+                             data-endeasing="Power4.easeIn"
+                             style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">
+                            Gdje Hrana i Gostoprimstvo
+                        </div>
+                        <!-- LAYER NR. 7 -->
+                        <div class="tp-caption white_thin customin ltl tp-resizeme"
+                             data-x="490"
+                             data-y="300"
+                             data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                             data-speed="1500"
+                             data-start="2400"
+                             data-easing="Power4.easeOut"
+                             data-splitin="chars"
+                             data-splitout="none"
+                             data-elementdelay="0.1"
+                             data-endelementdelay="0.1"
+                             data-endspeed="1000"
+                             data-endeasing="Power4.easeIn"
+                             style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">
+                            postanu Jedno
+                        </div>
+                    </li>
+                </ul>
+                <div class="tp-bannertimer"></div>
+            </div>
+        </div>
+
+    </div><!-- Kraj Slider container-->
+    <!-- Content-->
+    <div class="content-fix">
+        <div class="container">
+            <div class="opis-sadrzaja">
+                <h1>Otkrijte</h1>
+                <p>Pretražite <span>Restoran</span> stranicu i naručite svoje <span>omiljeno jelo</span></p>
+            </div>
+        </div>
+    </div>
+    <!-- Kraj Content-a-->
+    <!-- Sadrzaj restorana-->
+    <div class="content-fix">
+        <div class="container">
+            <div>
+                <div class="col-md-4 col-lg-4">
+                    <div class="rs-usluga-wrap">
+                        <div>
+                            <img src="~/Images/restoran-content-item3.jpg" class="img-responsive" />
+                        </div>
+                        <div>
+                            <div class="rs-usluga-content-title">
+                                <a href="#"> Naručite hranu </a>
+                                <span class="rs-usluga-content-intro-text">Naši specijaliteti su dostupni i Vama</span>
+                            </div>
+                            <div class="rs-usluga-content-text">
+                                <p>
+                                    Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <div class="rs-usluga-wrap">
+                        <div class="rs-usluga-photo">
+                            <img src="~/Images/restoran-content-item2.jpg" class="img img-responsive" />
+                        </div>
+                        <div class="rs-usluga-content-title">
+                            <a href="#"> Pridružite nam se</a>
+                            <span class="rs-usluga-content-intro-text">Postanite dio nas</span>
+                        </div>
+                        <div class="rs-usluga-content-text">
+                            <p>
+                                Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <div class="rs-usluga-wrap">
+                        <div class="rs-usluga-photo">
+                            <img src="~/Images/restoran-content-item1.jpg" class="img img-responsive" />
+                        </div>
+                        <div class="rs-usluga-content">
+                            <div class="rs-usluga-content-title">
+                                <a href="#"> Rezervišite stol </a>
+                                <span class="rs-usluga-content-intro-text">Sa samo par klikova i stol je rezervisan</span>
+                            </div>
+                            <div class="rs-usluga-content-text">
+                                <p>
+                                    Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Kraj sadrzaj restorana-->
+    <!-- Opis sadrzaja sa slikom-->
+    <div class="content-fix pozadina-slika">
+        <div class="tamna-podloga">
+            <div class="container">
+                <div class="opis-sadrzaja">
+                    <h1>Otkrijte</h1>
+                    <p>Pretražite <span>Restoran</span> stranicu i naručite svoje <span>omiljeno jelo</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Kraj Opis sadrzaja sa slikom-->
+    <!-- Content-->
+    <div class="content-fix">
+        <div class="container">
+            <div class="opis-sadrzaja">
+                <h1>Glavno jelo</h1>
+            </div>
+        </div>
+    </div>
+    <!-- Kraj Content-a-->
+    <!-- Meni restorana-->
+    <div class="container content-fix">
+        @foreach (var x in Model.OrderByDescending(x => x.Id))
+        {
+            if (x.Kategorija.NazivKategorije == "Glavno jelo")
+            {
+                <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6 rs-meni-hrana">
+                    <div class="rs-meni-hrana-main">
+                        <div class="rs-meni-hrana-slika pull-left">
+                            <img src="@Url.Content(x.SlikaProizvoda)" class="img-responsive" />
+                        </div>
+                        <div class="rs-meni-hrana-body">
+                            <div class="rs-meni-hrana-naslov">
+                                <a href="#">
+                                    @x.Naziv
+                                </a>
+                            </div>
+                            <div class="rs-meni-hrana-opis">
+                                <p>
+                                    @x.Opis
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            }
+        }
+
+    </div>
+    <!-- Kraj Meni restorana-->
+    <!-- Opis sadrzaja sa slikom-->
+    <div class="content-fix pozadina-slika2">
+        <div class="tamna-podloga">
+            <div class="container">
+                <div class="opis-sadrzaja">
+                    <h1>Razna jela</h1>
+                    <p>Počastite se ukusnim desertom</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Kraj Opis sadrzaja sa slikom-->
+    <!-- Content-->
+    <div class="content-fix">
+        <div class="container">
+            <div class="opis-sadrzaja">
+                <h1>Deserti</h1>
+            </div>
+        </div>
+    </div>
+    <!-- Kraj Content-a-->
+    <!-- Meni restorana-->
+    <div class="container content-fix">
+        @foreach (var x in Model.OrderByDescending(x => x.Id))
+        {
+            if (x.Kategorija.NazivKategorije == "Deserti")
+            {
+                <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6 rs-meni-hrana">
+                    <div class="rs-meni-hrana-main">
+                        <div class="rs-meni-hrana-slika pull-left">
+                            <img src="@Url.Content(x.SlikaProizvoda)" class="img-responsive" />
+                        </div>
+                        <div class="rs-meni-hrana-body">
+                            <div class="rs-meni-hrana-naslov">
+                                <a href="#">
+                                    @x.Naziv
+                                </a>
+                            </div>
+                            <div class="rs-meni-hrana-opis">
+                                <p>
+                                    @x.Opis
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            }
+        }
+    </div>
+    <!-- Kraj Meni restorana-->
+    <!-- Skripta za Revolution slider-->
+    <script src="~/Content/RevolutionSlider/slider-postavke.js"></script>
+    <!-- Kraj skripte za Revolution slider-->
+

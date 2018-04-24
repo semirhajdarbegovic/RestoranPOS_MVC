@@ -1,0 +1,52 @@
+﻿@using RestoranPOS.Areas.ModulNarudzba.Models
+@using RestoranPOS.Models
+@model RestoranPOS.Areas.ModulNarudzba.Models.NarudzbaViewModel
+
+<table class="table table-responsive" style="border-collapse: collapse; padding: 0 !important;">
+    <thead>
+        <tr class="panel-title">
+            <th>Datum Narudzbe</th>
+            <th>Vrijeme Narudzbe</th>
+            <th>Kreirao(username):</th>
+            <th>Kreirana online?</th>
+            <th>Ukupna cijena</th>
+            <th>Prihvacena</th>
+        </tr>
+    </thead>
+    @foreach (NarudzbaViewModel.NarudzbaInfo n in Model.Narudzbe)
+    {
+        <tr>
+            <td data-toggle="collapse" data-parent="#nAccordion" data-target="#@("n" + n.Id.ToString())">@n.DatumNarudzbe.ToShortDateString()</td>
+            <td data-toggle="collapse" data-parent="#nAccordion" data-target="#@("n" + n.Id.ToString())">@n.VrijemeNarudzbe.ToShortTimeString()</td>
+            <td data-toggle="collapse" data-parent="#nAccordion" data-target="#@("n" + n.Id.ToString())">@n.KorisnikUsername</td>
+            <td data-toggle="collapse" data-parent="#nAccordion" data-target="#@("n" + n.Id.ToString())">@n.OnlineNarudzba</td>
+            <td data-toggle="collapse" data-parent="#nAccordion" data-target="#@("n" + n.Id.ToString())">@n.UkupnaCijena</td>
+            <td data-toggle="collapse" data-parent="#nAccordion" data-target="#@("n" + n.Id.ToString())">@n.Prihvacena</td>
+        </tr>
+        <tr>
+            <td colspan="5" style="padding: 0;">
+                <div class="panel-body collapse" id="@("n" + n.Id.ToString())">
+                    <table class="table">
+                        <tr>
+                            <th>Naziv Proizvoda</th>
+                            <th>Kolicina</th>
+                            <th>Cijena</th>
+                            <th>Ukupno</th>
+                        </tr>
+
+                        @foreach (StavkaNarudzbe s in n.ListaStavki)
+                        {
+                            <tr>
+                                <td>@s.Proizvod.Naziv</td>
+                                <td>@s.Kolicina</td>
+                                <td>@s.Proizvod.Cijena</td>
+                                <td>@(s.Kolicina * s.Proizvod.Cijena)</td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </td>
+        </tr>
+    }
+</table>

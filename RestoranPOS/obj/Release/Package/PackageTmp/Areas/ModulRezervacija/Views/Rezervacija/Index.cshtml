@@ -1,0 +1,105 @@
+﻿@using RestoranPOS.Areas.ModulRezervacija.Models
+@model RestoranPOS.Areas.ModulRezervacija.Models.RezervacijaViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@using (Html.BeginForm("Index", "Rezervacija"))
+{
+    @Html.AntiForgeryToken()
+<div>
+<h4>Prikaz Rezervacija</h4>
+    <hr/>
+    <div class="container">
+        <form class="form-inline">
+            <div class="form-group">
+                <div class=" navbar-form">
+                    <div class="navbar-left">
+                        @Html.HiddenFor(model => model.StolId)
+                        @Html.LabelFor(model => model.PeriodOd, "Za datum:", htmlAttributes: new {@class = "control-label"})
+                        @Html.EditorFor(model => model.PeriodOd, new {htmlAttributes = new {@class = "form-control"}})
+                        @Html.ValidationMessageFor(model => model.PeriodOd, "", new {@class = "text-danger"})
+                        @*@Html.DropDownListFor(model => model.BrDana, Model.DaniOptions, new {@class = "form-control"})*@
+                        <input type="submit" value="Osvježi" class="btn btn-success"/>
+                        @Html.ActionLink("Poništi Odabir", "Index", null, new {@class = "btn btn-default", style = "margin: 2px"})
+                    </div>
+                    <div class="media-right">
+                        @Html.ActionLink("Dodaj", "Dodaj", null, new {@class = "btn btn-primary"})
+                        @Html.ActionLink("Kreiraj", "Kreiraj", null, new {@class = "btn btn-primary"})
+                    </div>
+                    <div class="navbar-right">
+                        @Html.ActionLink("Prošle i Izbrisane Narudzbe", "PrikaziProsle", null, new { @class = "btn btn-warning"})
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+    <dl class="dl-horizontal">
+        <div class="modal fade" id="modalStol" tabindex="-1" role="dialog" style="width: 75%; height: 70%; margin: auto">
+        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Datum Rezervacije</th>
+                <th>Vrijeme Rezervacije</th>
+                <th>Rezervirao(username)</th>
+                <th>Na Ime</th>
+                <th>Broj Osoba</th>
+                <th>Broj Stola</th>
+                <th>Rezervacija Odobrena</th>
+            </tr>
+            </thead>
+
+            @foreach (RezervacijaViewModel.RezervacijaInfo x in Model.Rezervacije)
+            {
+                <tr>
+                    <td>@x.DatumRezervacije.ToShortDateString()</td>
+                    <td>@x.VrijemeRezervacije.ToShortTimeString()</td>
+                    <td>@x.KorisnikUsername</td>
+                    <td>@x.ImeRezervacije</td>
+                    <td>@x.BrojOsoba</td>
+                    <td>@x.BrojStola</td>
+                    <td>@x.Odobrena</td>
+                    @if (!x.Odobrena)
+                    {
+                        <td>
+                            @Ajax.ActionLink("Odobri", "StolSelect", new {rezervacijaId = x.Id}, new AjaxOptions {UpdateTargetId = "modalStol"}, new {@class = "btn btn-success modal-link"})
+                            @Html.ActionLink("Uredi", "Uredi", new {rezervacijaId = x.Id}, new {@class = "btn btn-default", style = "margin: 2px"})
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            @Html.ActionLink("Poništi", "PonistiOdobrenje", new { rezervacijaId = x.Id }, new { @class = "btn btn-danger", style = "margin: 2px" })
+                            @Html.ActionLink("Uredi", "Uredi", new {rezervacijaId = x.Id}, new {@class = "btn btn-default", style = "margin: 2px"})
+                        </td>
+                    }
+                </tr>
+            }
+        </table>
+    </dl>
+}
+<script type="text/javascript">
+        $(function () {
+            $('body').on('click', '.modal-link', function (e) {
+                e.preventDefault();
+                $(this).attr('data-target', '#modalStol');
+                $(this).attr('data-toggle', 'modal');
+            });
+        });
+</script>
+ 
+<script type="text/javascript">
+    $(function() {
+        $('#PeriodOd').datetimepicker({
+            pickTime: false,
+            format: "DD/MM/YYYY",
+            maxDate: "1/1/2100",
+            minDate:"1/1/2012"
+        });
+    });
+</script>

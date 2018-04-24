@@ -1,0 +1,84 @@
+﻿@using RestoranPOS.Models
+@model RestoranPOS.Areas.ModulAdmin.Models.PonudaEditModel
+
+@{
+    ViewBag.Title = "Uredi";
+}
+
+<h2>Uredi</h2>
+
+
+@using (Html.BeginForm("Spremi", "Ponuda"))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>PonudaEditModel</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NazivPonude, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NazivPonude, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NazivPonude, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.VaziOd, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.VaziOd, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.VaziOd, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.VaziDo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.VaziDo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.VaziDo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Aktivna, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Aktivna)
+                    @Html.ValidationMessageFor(model => model.Aktivna, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Spremi" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<script type="text/javascript">
+    $(function() {
+        $('#VaziOd').datetimepicker({
+            pickTime: false,
+            format: "DD/MM/YYYY",
+            maxDate: "1/1/2100",
+            minDate:"1/1/2012"
+        });
+    });
+</script>
+<script type="text/javascript">
+        $(function() {
+            $('#VaziDo').datetimepicker({
+                pickTime: false,
+                format: "DD/MM/YYYY",
+                maxDate: "1/1/2100",
+                minDate: "1/1/2012"
+        });
+    });
+</script>

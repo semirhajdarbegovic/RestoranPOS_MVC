@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="RestoranDBString-Web.config Connection String" description="RestoranDBString Connection String used in web.config by the application to access the database." defaultValue="Data Source=app.fit.ba,1434;Initial Catalog=si012;Integrated Security=false;User ID=si012;Password=npjo!1;MultipleActiveResultSets=true" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Master-PC\\Documents\\Visual\ Studio\ 2015\\Projects\\Restoran_Fax\\RestoranPOS\\RestoranPOS\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='RestoranDBString']/@connectionString" />
+  </parameter>
+</parameters>

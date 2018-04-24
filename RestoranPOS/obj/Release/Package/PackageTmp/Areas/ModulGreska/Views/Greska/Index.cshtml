@@ -1,0 +1,28 @@
+﻿@using RestoranPOS.Helper
+@using RestoranPOS.Models
+@{
+    Korisnik korisnik = Autentifikacija.GetLogiraniKorisnik(Context);
+}
+}
+
+<!-- Content-->
+<div class="content-fix">
+    <div class="tamna-podloga">
+        <div class="container">
+            <div class="opis-sadrzaja">
+                <h1>Modul Greška</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Kraj Content-a-->
+<div class="container greska-Index">
+    <div class="col-md-6 col-lg-6">
+        @Html.ActionLink("Prijavi grešku", "PrijaviGresku", new { korisnikId = korisnik.Id }, new{@class="btn btn-gold btn-block btn-lg"})
+    </div>
+    <div class="col-md-6 col-lg-6">
+        @Html.ActionLink("Pregledaj greške", "PrikaziGresku", new { }, new { @class = "btn btn-gold btn-block btn-lg" })
+    </div>    
+</div>
+
+

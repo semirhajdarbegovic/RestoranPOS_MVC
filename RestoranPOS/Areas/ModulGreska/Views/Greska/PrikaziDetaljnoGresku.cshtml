@@ -1,0 +1,88 @@
+﻿@model RestoranPOS.Models.Greska
+
+<div>
+    <div class="container content-margin-fix">
+        <div class="prikazi-gresku-container col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="prikazi-gresku-container-opis">
+                <p>
+                    Pregled greške
+                </p>
+            </div>
+            <ul class="prikazi-gresku-tabela">
+                <li>
+                    <span>
+                        @Html.DisplayNameFor(model => model.Opis)
+                    </span>
+                    <strong>
+                        @Html.DisplayFor(model => model.Opis)
+                    </strong>
+                </li>
+                <li>
+                    <span>
+                        @Html.DisplayNameFor(model => model.Pregledana)
+                    </span>
+                    @if (Model.Pregledana == true)
+                    {
+                        <strong>DA</strong>
+                    }
+                    else
+                    {
+                        <strong>NE</strong>
+                    }
+                </li>
+                <li>
+                    <span>
+                        @Html.DisplayNameFor(model => model.Ispravljena)
+                    </span>
+                    @if (Model.Ispravljena == true)
+                    {
+                        <strong>DA</strong>
+                    }
+                    else
+                    {
+                        <strong>NE</strong>
+                    }
+                </li>
+                <li>
+                    <span>
+                        @Html.DisplayNameFor(model => model.DatumPrijave)
+                    </span>
+                    <strong>
+                        @Model.DatumPrijave.ToShortDateString()
+                    </strong>
+                </li>
+                <li>
+                    <span>
+                        @Html.DisplayNameFor(model => model.VrijemePrijave)
+                    </span>
+                    <strong>
+                        @Model.VrijemePrijave.ToShortTimeString()
+                    </strong>
+                </li>
+                <li>
+                    <span>
+                        @Html.DisplayNameFor(model => model.Korisnik.EMail)
+                    </span>
+                    <strong>
+                        @Model.Korisnik.EMail
+                    </strong>
+                </li>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <li>
+                        Da li ste ispravili gresku?
+                        <strong> @Html.RadioButtonFor(model => model.Ispravljena, false) Ne</strong>
+                        <strong>  @Html.RadioButtonFor(model => model.Ispravljena, true) Da</strong>
+
+                        <input type="submit" value="Potrvrdi" class="btn btn-gold" />
+                    </li>
+                }
+            </ul>
+
+
+
+                   
+</div>
+    </div>
+</div>

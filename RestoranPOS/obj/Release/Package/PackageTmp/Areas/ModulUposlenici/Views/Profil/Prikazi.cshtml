@@ -1,0 +1,130 @@
+﻿@model RestoranPOS.Models.Uposlenik
+
+<div class="container container-margin-fix">
+    <div class="uposlenik-korisnik-container col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="uposlenik-korisnik-container-opis">
+            <p>
+                Pregled profila
+            </p>
+        </div>
+        <ul class="uposlenik-korisnik-profil-tabela">
+            <li>
+                <span>
+                    @Html.DisplayNameFor(model => model.Korisnik.Ime)
+                </span>
+                <strong>
+                    @Html.DisplayFor(model => model.Korisnik.Ime)
+                </strong>
+            </li>
+            <li>
+                <span>
+                    @Html.DisplayNameFor(model => model.Korisnik.Prezime)
+                </span>
+                <strong>
+                    @Html.DisplayFor(model => model.Korisnik.Prezime)
+                </strong>
+            </li>
+            <li>
+                <span>
+                    Email
+                </span>
+                <strong>
+                    @Html.DisplayFor(model => model.Korisnik.EMail)
+                </strong>
+            </li>
+            <li>
+                <span>
+                    @Html.DisplayNameFor(model => model.Korisnik.Username)
+                </span>
+                <strong>
+                    @Html.DisplayFor(model => model.Korisnik.Username)
+                </strong>
+            </li>
+            <li>
+                <span>
+                    @Html.DisplayNameFor(model => model.Korisnik.Password)
+                </span>
+                <strong>
+                    @Html.DisplayFor(model => model.Korisnik.Password)
+                </strong>
+            </li>
+            <li>
+                <span>
+                    @Html.DisplayNameFor(model => model.Korisnik.Adresa)
+                </span>
+                <strong>
+                    @Html.DisplayFor(model => model.Korisnik.Adresa)
+                </strong>
+            </li>
+            <li>
+                <span>
+                    @Html.DisplayNameFor(model => model.Jmbg)
+                </span>
+                <strong>
+                    @Html.DisplayFor(model => model.Jmbg)
+                </strong>
+            </li>
+            <li>
+                <span>
+                    Broj radne knjižice
+                </span>
+                <strong>
+                    @Html.DisplayFor(model => model.BrRadneKnjizice)
+                </strong>
+            </li>
+            <li>
+                <span>
+                    Broj žiro računa
+                </span>
+                <strong>
+                    @Html.DisplayFor(model => model.BrZiroRacuna)
+                </strong>
+            </li>
+            <li>
+                <span>
+                    Datum zaposlenja
+                </span>
+                <strong>
+                    @Html.DisplayFor(model => model.DatumZaposlenja)
+                </strong>
+            </li>
+            <li>
+                <span>
+                    @Html.DisplayNameFor(model => model.Plata)
+                </span>
+                <strong>
+                    @Html.DisplayFor(model => model.Plata)
+                </strong>
+            </li>
+            <li>
+                <span>
+                    Broj dana godišnjeg
+                </span>
+                <strong>
+                    @Html.DisplayFor(model => model.BrDanaGodisnjeg)
+                </strong>
+            </li>
+            <li>
+                <span>
+                    Opis radnog mjesta
+                </span>
+                <strong>
+                    @Html.DisplayFor(model => model.OpisRadnogMjesta)
+                </strong>
+            </li>
+
+        </ul>
+        <ul class="list-inline">
+            <li>
+                @Html.ActionLink("Uredi profil", "UrediProfil", new { korisnikId = Model.Id }, new { @class = "btn btn-info" })
+            </li>
+            <li>
+                @Html.ActionLink("Promjeni Lozinku", "PromjeniLozinku", new { korisnikId = Model.Id }, new { @class = "btn btn-warning" })
+            </li>
+        </ul>
+    </div>
+    <div>
+
+        
+    </div>
+</div>

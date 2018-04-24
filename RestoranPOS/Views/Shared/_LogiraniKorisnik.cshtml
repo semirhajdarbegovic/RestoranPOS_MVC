@@ -1,0 +1,49 @@
+﻿@*@using RestoranPOS.Helper
+@using RestoranPOS.Models
+
+    @{
+        Korisnik korisnik = Autentifikacija.GetLogiraniKorisnik(Context);
+    }
+    <a href="#"> @korisnik.Ime @korisnik.Prezime </a>*@
+
+
+@using RestoranPOS.Helper
+    @using RestoranPOS.Models
+<li class="dropdown btn-group">
+    @{
+        Korisnik korisnik = Autentifikacija.GetLogiraniKorisnik(Context);
+    }
+    <a href="#" class="dropdown-toggle btn btn-gold" data-toggle="dropdown" role="button" aria-expanded="false">@korisnik.Ime @korisnik.Prezime <span class="caret"></span></a>
+    <ul class="dropdown-menu" role="menu">
+
+        @if (korisnik.Uposlenik != null)
+        {
+        <li>@Html.ActionLink("Detalji Profila", "Prikazi", "Profil", new { area = "ModulUposlenici", korisnikId = korisnik.Id }, null)</li>
+        <li>@Html.ActionLink("Prikaz proizvoda", "Prikazi", "Proizvod", new {area = "ModulProizvod"}, null)</li>
+        <li>@Html.ActionLink("Rezervacije", "Index", "Rezervacija", new { area = "ModulRezervacija" }, null)</li>
+            if (korisnik.Uposlenik.Admin)
+            {
+                <li>@Html.ActionLink("Korisnici", "Index", "Korisnik", new { area = "ModulAdmin", korisnikId = korisnik.Id }, null)</li>
+                        <li>@Html.ActionLink("Kategorije", "Prikazi", "Kategorija", new { area = "ModulAdmin"}, null)</li>
+                        <li>@Html.ActionLink("Ponuda", "Prikazi", "Ponuda", new { area = "ModulAdmin" }, null)</li>
+                        <li>@Html.ActionLink("Restoran", "Prikazi", "Restoran", new { area = "ModulAdmin" }, null)</li>
+                        <li>@Html.ActionLink("Racuni", "Index", "Racun", new { area = "ModulStol" }, null)</li>
+                        <li>@Html.ActionLink("Greska", "Index", "Greska", new { area = "ModulGreska", korisnikId = korisnik.Id }, null)</li>
+            }
+         }
+
+            else
+            {
+                <li>@Html.ActionLink("Profil", "Prikazi", "Profil", new {area = "ModulOnlineKorisnici", korisnikId = korisnik.Id}, null)</li>
+                <li>@Html.ActionLink("Naruci", "PrikaziPonudu", "Naruci", new { area = "ModulOnlineKorisnici", korisnikId = korisnik.Id }, null)</li>
+                <li>@Html.ActionLink("Rezervisi Stol", "Kreiraj", "Rezervacija", new { area = "ModulRezervacija" }, null)</li>
+            }
+        <li>@Html.ActionLink("Logout", "Login", "Login", new { area = "ModulLogin" }, new { })</li>
+    </ul>
+
+</li>
+<script src="~/Scripts/jquery-2.1.1.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $('.dropdown-toggle').dropdown()
+</script>

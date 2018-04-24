@@ -1,0 +1,49 @@
+﻿@using RestoranPOS.Areas.ModulAdmin.Models
+@model RestoranPOS.Areas.ModulAdmin.Models.KategorijaViewModel
+
+@{
+    ViewBag.Title = "Prikazi";
+}
+
+<h2>Prikazi</h2>
+
+<div>
+    <h4>KategorijaViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <form>
+            <div class=" form-inline">
+                @Html.DropDownListFor(model => model.PonudaId, Model.PonudeOptions, new { @class = "form-control" })
+                <input type="submit" value="Filtiraj" class="btn btn-success" />
+            </div>
+        </form>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>NazivKategorije</th>
+                <th>DostupnaOnline</th>
+            </tr>
+            </thead>
+
+            @foreach (KategorijaViewModel.KategorijaInfo x in Model.Kategorije)
+            {
+                <tr>
+                    <td>@x.Id</td>
+                    <td>@x.NazivKategorije</td>
+                    <td>@x.DostupnaOnline</td>
+                    <td>
+                        @Html.ActionLink("Uredi", "Uredi", new {kategorijaId = x.Id}, new { @class = "btn btn-default", style = "margin: 2px" })
+                        @Html.ActionLink("Izbrisi", "Izbrisi", new {kategorijaId = x.Id}, new { @class = "btn btn-danger", style = "margin: 2px" })
+                        @Html.ActionLink("Prikazi Proizvode", "Prikazi", "Proizvod", new { Area = "ModulProizvod", kategorijaId = x.Id }, new { @class = "btn btn-default", style = "margin: 2px" })
+                        @Html.ActionLink("Dodaj Proizvod", "Dodaj", "Proizvod", new { Area = "ModulProizvod", kategorijaId = x.Id}, new { @class = "btn btn-default", style = "margin: 2px" })
+                    </td>
+                </tr>
+            }
+        </table>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Prikazi izbrisane", "PrikaziIzbrisane",null, new { @class = "btn btn-default", style = "margin: 2px" })
+    @Html.ActionLink("Dodaj", "Dodaj", null, new { @class = "btn btn-primary", style = "margin: 2px" })
+</p>

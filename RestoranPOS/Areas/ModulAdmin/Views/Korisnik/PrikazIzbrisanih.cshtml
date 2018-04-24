@@ -1,0 +1,64 @@
+﻿@using System.Diagnostics.Eventing.Reader
+@using RestoranPOS.Areas.ModulAdmin.Models
+@model RestoranPOS.Areas.ModulAdmin.Models.KorisnikViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+</p>
+<form>
+    <div class=" form-inline">
+        @Html.DropDownListFor(model => model.tipKorisnika, Model.KorisniciOptions, new { @class = "form-control" })
+        <input type="submit" value="Filtiraj" class="btn btn-success"/>
+        <input type="submit" value="Dodaj Korisnika" class="btn btn-primary" />
+    </div>
+</form>
+<table class="table">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>Ime</th>
+        <th>Prezime</th>
+        <th>Username</th>
+        <th>Adresa</th>
+        <th>BrTelefona</th>
+        <th>NalogAktivan</th>
+        <th>EMail</th>
+        <th>Uposlen</th>
+    </tr>
+    </thead>
+
+    @foreach (KorisnikViewModel.KorisnikInfo x in Model.Korisnici)
+    {
+        <tr>
+            <td>@x.Id</td>
+            <td>@x.Ime</td>
+            <td>@x.Prezime</td>
+            <td>@x.Username</td>
+            <td>@x.Adresa</td>
+            <td>@x.BrTelefona</td>
+            <td>@x.NalogAktivan</td>
+            <td>@x.EMail</td>
+            <td>
+                @if (x.Uposlen == false)
+                {
+                    @Html.ActionLink("Uredi", "Uredi", "Profil", new {Area = "ModulOnlineKorisnici", korisnikId = x.Id}, new {@class = "btn btn-default", style = "margin: 2px"})
+                    @Html.ActionLink("Aktiviraj", "Aktiviraj", new {korisnikId = x.Id}, new {@class = "btn btn-danger", style = "margin: 2px", onclick = "return confirm('Jeste li sigurni da želite aktivirati ovoga korisnika?')"})
+                }
+                @if (x.Uposlen == true)
+                {
+                    @Html.ActionLink("Uredi", "AdminUredi", "Profil", new {Area = "ModulUposlenici", korisnikId = x.Id}, new {@class = "btn btn-default", style = "margin: 2px"})
+                    @Html.ActionLink("Aktiviraj", "Aktiviraj", new {korisnikId = x.Id}, new {@class = "btn btn-danger", style = "margin: 2px", onclick = "return confirm('Jeste li sigurni da želite aktivirati ovoga korisnika?')"})
+                }
+            </td>
+        </tr>
+    }
+</table>
+<div>
+    @Html.ActionLink("Povratak", "Index", null, new {@class = "btn btn-default"})
+</div>
+

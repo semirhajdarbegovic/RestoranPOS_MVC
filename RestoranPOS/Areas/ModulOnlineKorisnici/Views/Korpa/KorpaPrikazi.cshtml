@@ -1,0 +1,59 @@
+﻿@model List<RestoranPOS.Areas.ModulOnlineKorisnici.Models.KorpaViewModel>
+@using RestoranPOS.Areas.ModulOnlineKorisnici.Models
+@using RestoranPOS.Models
+
+<div class="container">
+
+    <table class="table table-striped tabela-popravi-vrati container-margin-fix">
+        <tr>
+            <th>
+                Naziv proizvoda
+            </th>
+            <th>
+                Cijena proizvoda
+            </th>
+            <th>
+                Kolicina
+            </th>
+            <th>
+                Datum narudzbe
+            </th>
+            <th>
+                ProizovidID
+            </th>
+            <th>
+                KorisnikId
+            </th>
+        </tr>
+        @foreach (KorpaViewModel x in Model)
+        {
+            <tr>
+                <td>
+                    @x.Korpa.NazivProizvoda
+                </td>
+                <td>
+                    @x.Korpa.CijenaProizvoda
+                </td>
+                <td>
+                    @x.Korpa.Kolicina
+                </td>
+                <td>
+                    @x.Korpa.DatumNarudzbe
+                </td>
+                <td>
+                    @x.Korpa.ProizvodId
+                </td>
+                <td>
+                    @x.Korpa.KorisnikId
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div class="ukupno-platiti">
+        Ukupno za platiti : @ViewData["Ukupno"] KM
+    </div>
+    <div class="zakljuci-narudzbu">
+        @Html.ActionLink("Zavrsi/Naruci", "ZakljuciNarudzbu", "Korpa", new { Area = "ModulOnlineKorisnici", korisnikId = Model[0].Korpa.KorisnikId }, new { @class = "btn btn-block btn-gold" })
+    </div>
+</div>

@@ -1,0 +1,149 @@
+﻿@model RestoranPOS.Areas.ModulAdmin.Models.RestoranPrikaziViewModel
+
+
+
+<div class="container container-margin-fix">
+    <div class="uposlenik-korisnik-container col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="uposlenik-korisnik-container-opis">
+            <p>
+                Pregled Restorana
+            </p>
+        </div>
+        <ul class="uposlenik-korisnik-profil-tabela">
+            <dl class="dl-horizontal dt-style-2">
+                <li>
+                    <span>
+                @Html.DisplayNameFor(model => model.Naziv)
+
+                </span><strong>
+                        @Html.DisplayFor(model => model.Naziv)
+                    </strong>
+                </li>
+                <li>
+                    <span>
+                    @Html.DisplayNameFor(model => model.Adresa)
+
+
+                </span><strong>
+                        @Html.DisplayFor(model => model.Adresa)
+                    </strong>
+                </li>
+                <li>
+                    <span>
+                    @Html.DisplayNameFor(model => model.BrTelefona)
+
+
+                </span><strong>
+                        @Html.DisplayFor(model => model.BrTelefona)
+                    </strong>
+                </li>
+                <li>
+                    <span>
+                    @Html.DisplayNameFor(model => model.BrPDV)
+
+
+                </span><strong>
+                        @Html.DisplayFor(model => model.BrPDV)
+                    </strong>
+                </li>
+                <li>
+                    <span>
+                    @Html.DisplayNameFor(model => model.VrijednostPDV)
+
+
+                </span><strong>
+                        @Html.DisplayFor(model => model.VrijednostPDV)
+                    </strong>
+                </li>
+                <li>
+                    <span>
+                    @Html.DisplayNameFor(model => model.BrStolova)
+
+
+                </span><strong>
+                        @Html.DisplayFor(model => model.BrStolova)
+                    </strong>
+                </li>
+                <li>
+                    <span>
+                    @Html.DisplayNameFor(model => model.MaxRezervacija)
+
+
+                </span><strong>
+                        @Html.DisplayFor(model => model.MaxRezervacija)
+                    </strong>
+                </li>
+                <li>
+                    <span>
+                    @Html.DisplayNameFor(model => model.VrijemeOtvaranja)
+
+
+                </span><strong>
+                        @Html.DisplayFor(model => model.VrijemeOtvaranja)
+                    </strong>
+                </li>
+                <li>
+                    <span>
+                    @Html.DisplayNameFor(model => model.VrijemeZatvaranja)
+
+
+                </span><strong>
+                        @Html.DisplayFor(model => model.VrijemeZatvaranja)
+                    </strong>
+                </li>
+                <li>
+                    <span>
+                    @Html.DisplayNameFor(model => model.VrijemeOtvaranjaKuhinje)
+
+
+                </span><strong>
+                        @Html.DisplayFor(model => model.VrijemeOtvaranjaKuhinje)
+                    </strong>
+                </li>
+                <li>
+                    <span>
+                    @Html.DisplayNameFor(model => model.VrijemeZatvaranjaKuhinje)
+
+
+                </span><strong>
+                        @Html.DisplayFor(model => model.VrijemeZatvaranjaKuhinje)
+                    </strong>
+                </li>
+                <li>
+                    <span>
+                    @Html.DisplayNameFor(model => model.ImaDostavu)
+
+
+                </span><strong>
+                        @Html.DisplayFor(model => model.ImaDostavu)
+                    </strong>
+                </li>
+                <li>
+                    <span>
+                    @Html.DisplayNameFor(model => model.InfoEmail)
+
+
+                </span><strong>
+                        @Html.DisplayFor(model => model.InfoEmail)
+                    </strong>
+                </li>
+                <li>
+                    <span>
+                    @Html.DisplayNameFor(model => model.OpisRestorana)
+
+
+                </span><strong>
+                        @Html.DisplayFor(model => model.OpisRestorana)
+                    </strong>
+                </li>
+            </dl>
+        </ul>
+        <ul class="list-inline">
+            <li>
+               @Html.ActionLink("Uredi", "Uredi", new { restoranId = Model.Id }, new { @class = "btn btn-info", style = "margin: 2px" })
+            </li>
+            
+        </ul>
+</div>
+    </div>
+

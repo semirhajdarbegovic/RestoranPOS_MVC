@@ -1,0 +1,73 @@
+﻿@using RestoranPOS.Areas.ModulProizvod.Models
+@model RestoranPOS.Areas.ModulProizvod.Models.PrikaziProizvodViewModel
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Prikazi</title>
+</head>
+<body>
+    <div>
+        <h4>Proizvodi</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <table class="table table-responsive" style="border-collapse: collapse; padding: 0 !important;">
+                        <thead>
+                        <tr class="panel-title">
+                            <th>Naziv</th>
+                            <th>Kolicina na stanju</th>
+                            <th>Cijena</th>
+                            @Html.ActionLink("Dodaj Novi Proizvod", "Dodaj", "", new { @class = "btn btn-primary", style = "float: right" })
+                            
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (PrikaziProizvodViewModel.ProizvodInfo x in Model.Proizvodi)
+                        {
+                            <tr>
+                                <td data-toggle="collapse" data-target="#@x.Id.ToString()">@x.Naziv</td>
+                                <td data-toggle="collapse" data-target="#@x.Id.ToString()">@x.Kolicina</td>
+                                <td data-toggle="collapse" data-target="#@x.Id.ToString()">@x.Cijena</td>
+                                <td>
+                                    @Html.ActionLink("Uredi", "Uredi", new {proizvodId = x.Id}, new {@class = "btn btn-default", style = "margin: 2px"})
+                                    @Html.ActionLink("Izbrisi", "Izbrisi", new {proizvodId = x.Id}, new {@class = "btn btn-danger", style = "margin: 2px"})
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" style="padding: 0;">
+                                    <div class="collapse" id="@x.Id.ToString()">
+                                        <table class="table">
+                                            <tr><th>Sifra Proizvoda:</th>
+                                                <th>Opis Proizvoda</th>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 15%">@x.SifraProizvoda</td>
+                                                <td>@x.Opis</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                        <tbody>
+                    </table>
+                </div>
+            </div>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Prikazi izbrisane", "PrikaziIzbrisane", null, new { @class = "btn btn-default", style = "margin: 2px" })
+        @Html.ActionLink("Nazad na kategorije", "Prikazi", "Kategorija", new { Area = "ModulAdmin" }, new { @class = "btn btn-default", style = "margin: 2px" })
+
+
+    </p>
+    <script type="text/javascript" src="/scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery-2.1.1.min.js"></script>
+</body>
+
+</html>

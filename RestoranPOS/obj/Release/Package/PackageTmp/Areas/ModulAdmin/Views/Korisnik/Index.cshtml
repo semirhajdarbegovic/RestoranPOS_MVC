@@ -1,0 +1,80 @@
+﻿@using System.Diagnostics.Eventing.Reader
+@using RestoranPOS.Areas.ModulAdmin.Models
+@model RestoranPOS.Areas.ModulAdmin.Models.KorisnikViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<form>
+    <div class=" form-inline">
+        @Html.DropDownListFor(model => model.tipKorisnika, Model.KorisniciOptions, new { @class = "form-control" })
+        <input type="submit" value="Filtiraj" class="btn btn-success"/>
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                Dodaj Korisnika
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li>@Html.ActionLink("Dodaj Online Korisnika", "DodajOnlineKorisnika")</li>
+                <li>@Html.ActionLink("Dodaj Uposlenika", "DodajUposlenika")</li>
+            </ul>
+        </div>
+    </div>
+</form>
+<table class="table">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>Ime</th>
+        <th>Prezime</th>
+        <th>Username</th>
+        <th>Adresa</th>
+        <th>BrTelefona</th>
+        <th>NalogAktivan</th>
+        <th>EMail</th>
+        <th>Uposlen</th>
+    </tr>
+    </thead>
+
+    @foreach (KorisnikViewModel.KorisnikInfo x in Model.Korisnici)
+    {
+        <tr>
+            <td>@x.Id</td>
+            <td>@x.Ime</td>
+            <td>@x.Prezime</td>
+            <td>@x.Username</td>
+            <td>@x.Adresa</td>
+            <td>@x.BrTelefona</td>
+            <td>@x.NalogAktivan</td>
+            <td>@x.EMail</td>
+            <td>
+                @if (x.Uposlen == false)
+                {
+                    @Html.ActionLink("Uredi", "Uredi", "Profil", new {Area = "ModulOnlineKorisnici", korisnikId = x.Id}, new {@class = "btn btn-default", style = "margin: 2px"})
+                    <div class="btn-group dropdown">
+                        <button type="button" class="btn btn-success dropdown-toggle" style="padding-right: 2px" data-toggle="dropdown" aria-expanded="false">
+                            Uposli
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("Dodavanje podataka odmah", "UposliPopunjen", new { korisnikId = x.Id })</li>
+                            <li>@Html.ActionLink("Uposli bez dodavanja podataka", "UposliPrazan", new { korisnikId = x.Id })</li>
+                        </ul>
+                    </div>
+                    @Html.ActionLink("Izbrisi", "Izbrisi", new {korisnikId = x.Id}, new {@class = "btn btn-danger test", id="test", style = "margin: 2px"})
+                }
+                @if (x.Uposlen == true)
+                {
+                    @Html.ActionLink("Uredi", "AdminUredi", "Profil", new {Area = "ModulUposlenici", korisnikId = x.Id}, new {@class = "btn btn-default", style = "margin: 2px"})
+                    @Html.ActionLink("Otpusti", "Otpusti", new {korisnikId = x.Id}, new {@class = "btn btn-success", style = "margin: 2px", onclick = "return confirm('Jeste li sigurni da želite otpustiti ovoga korisnika?')"})
+                    @Html.ActionLink("Izbrisi", "Izbrisi", new {korisnikId = x.Id}, new {@class = "btn btn-danger", style = "margin: 2px", onclick = "return confirm('Jeste li sigurni da želite izbrisati ovoga korisnika?')"})
+                }
+            </td>
+        </tr>
+    }
+</table>
+<div>
+    @Html.ActionLink("Prikazi Izbrisane Korisnike", "PrikaziIzbrisane", null, new {@class = "btn btn-default"})
+</div>

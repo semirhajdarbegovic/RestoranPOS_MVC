@@ -1,0 +1,129 @@
+﻿@model RestoranPOS.Areas.ModulOnlineKorisnici.Models.OKPonudaViewModel
+@using RestoranPOS.Areas.ModulNarudzba.Models
+@using RestoranPOS.Areas.ModulOnlineKorisnici.Models
+@using RestoranPOS.Helper
+@using RestoranPOS.Models
+
+@{
+        Korisnik korisnik = Autentifikacija.GetLogiraniKorisnik(Context);
+}
+
+@*  Prikazi Ponudu
+        <div class="Okorisnici-ponuda">
+            <h2>Specijalna ponuda restorana</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Naziv Ponude</th>
+                        <th>Vrijedi Od</th>
+                        <th>Vrijedi Do</th>
+                    </tr>
+                </thead>
+
+              @foreach (OKPonudaViewModel.PonudaInfo x in Model.Ponude)
+                {
+                    <tr>
+                        <td>@x.NazivPonude</td>
+                        <td>@x.VaziOd.ToShortDateString()</td>
+                        <td>@x.VaziDo.ToShortDateString()</td>
+                    </tr>
+                }
+        </table>
+    </div> *@
+
+<div class="Okorisnici-proizvodi container content-fix">
+
+    <!-- Prikazi / Odaberi kategoriju -->
+    <div class="col-md-3 korisnici-kategorija">
+        <div class="korisnici-kategorija-naslov">
+            <h5>
+                Odaberite kategoriju
+            </h5>
+        </div>
+        @foreach (OKPonudaViewModel.KategorijaInfo x in Model.Kategorije)
+        {
+            <ul class="korisnici-odabir-kategorije">
+
+                @Ajax.ActionLink(x.NazivKategorije, "PrikaziPonudu", "Naruci", new { Area = "ModulOnlineKorisnici", kategorijaId = x.Id }, new AjaxOptions { UpdateTargetId = x.Id.ToString() }, new { @class = "korisnici-odabir-kategorije-list" })
+
+            </ul>
+        }
+    </div>
+    <!-- Prikazi Proizvode / Ponudu restorana-->
+    <div class="col-md-6">
+        <div class="korisnici-kategorija-naslov">
+            <h5>
+                Odaberite jelo
+            </h5>
+        </div>
+        @foreach (OKPonudaViewModel.ProizvodInfo x in Model.Proizvodi)
+        {
+            <article class="korisnici-meni-hrana">
+                <div class="korisnici-meni-hrana-main">
+                    <div class="korisnici-meni-hrana-body col-md-7">
+                        <div class="korisnici-meni-hrana-naslov">
+                            <a href="#">
+                                @x.NazivProizvoda
+                            </a>
+                        </div>
+                        <div class="korisnici-meni-hrana-opis">
+                            <p>
+                                @x.OpisProizvoda
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-2 korisnici-meni-hrana-cijena">
+                        <p>
+                            @x.Cijena KM
+                        </p>
+                    </div>
+                    <div class="col-md-3 korisnici-meni-hrana-naruci">
+                        @Ajax.ActionLink("Naruci", "PrikaziPonudu", "Naruci", new {Area = "ModulOnlineKorisnici", kategorijaId = @ViewBag.katId, proizvodId = x.Id, korisnikId = korisnik.Id}, new AjaxOptions {UpdateTargetId = x.Id.ToString()}, new {@class = "btn btn-gold"})
+
+
+                    </div>
+                    
+                </div>
+            </article>
+        }
+    </div>
+    <div class="col-md-3">
+        <div class="korisnici-kategorija-naslov">
+            <h5>
+                Korpa
+            </h5>
+        </div>
+        @if ((List<KorpaViewModel>)Session["korpa"] != null)
+        {
+            foreach (var item in (List<KorpaViewModel>) Session["korpa"])
+             {
+                 <article class="korisnici-meni-hrana">
+                     <div class="korisnici-meni-hrana-main">
+                         <div class="korisnici-meni-hrana-body col-md-10">
+                             <div class="korisnici-meni-hrana-naslov">
+                                 <a href="#">
+                                     @item.Korpa.Kolicina X @item.Korpa.NazivProizvoda
+                                 </a>
+                             </div>
+                         </div>
+                         <div class="col-md-2 korisnici-meni-hrana-cijena">
+                             @item.Korpa.UkupnaCijenaProizvoda KM
+                         </div>
+                         <div class="korisnici-meni-hrana-naruci">
+                             @Ajax.ActionLink("Ukloni", "PrikaziPonudu", "Naruci", new { Area = "ModulOnlineKorisnici", kategorijaId = @ViewBag.katId, proizvodId = @item.Korpa.ProizvodId, deleteId = 1 }, new AjaxOptions { UpdateTargetId = @item.Korpa.ProizvodId.ToString() }, new { @class = "btn btn-gold" })
+
+
+                         </div>
+                     </div>
+                 </article>
+             }
+
+            <div>
+                <p>Ukupna cijena : @ViewData["Ukupno"] KM</p>
+            </div>
+            <div>
+                @Html.ActionLink("Zavrsi kupovinu", "KorpaPrikazi", "Korpa")
+            </div>
+        }
+    </div>
+</div>

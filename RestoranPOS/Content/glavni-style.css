@@ -1,0 +1,743 @@
+﻿body {
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+h1,h2,h3,h4,h5,h6 {
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  margin-bottom: 25px;
+  color: #000;
+  font-style: normal;
+  font-weight: 400;
+
+}
+.tabela-popravi-vrati {  
+        margin-bottom: 35px;   
+}
+.ukupno-platiti {
+    float: left;
+    width: 100%;
+    position: relative;
+    display: block;
+    margin-bottom: 35px;
+        text-align: center;
+    font-weight: 900;
+}
+.zakljuci-narudzbu {
+    float: left;
+    width: 100%;
+    position: relative;
+}
+.zakljuci-narudzbu .btn {
+    padding: 20px;
+    font-weight: 900;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+/**************************************************************/
+/*****    Fix stvari      ***************/
+/************************************************************/
+.content-margin-fix {
+    margin: 40px auto;
+}
+/**************************************************************/
+/*****    Dodatni razmak u header sekciji      ***************/
+/************************************************************/
+.navbar {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: #fff;
+    
+}
+
+/**************************************************************/
+/*****    Izmjena bootstrap-css-a              ***************/
+/************************************************************/
+.navbar-default .navbar-nav > li > a {
+  color: #656565;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #c79c60;
+  background-color: transparent;
+  border-bottom: 1px solid #c79c60; 
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    background-color: transparent;
+  border-bottom: 1px solid #c79c60;
+    color: #c79c60;
+}
+.navbar-default .navbar-nav > .disabled > a,
+.navbar-default .navbar-nav > .disabled > a:hover,
+.navbar-default .navbar-nav > .disabled > a:focus {
+  color: #ccc;
+  background-color: transparent;
+}
+/**************************************************************/
+/*****    Postavlja sliku na 100%             ***************/
+/************************************************************/
+.img-responsive, .thumbnail > img, .thumbnail a > img, .carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    width: 100%;
+}
+
+/**************************************************************/
+/*****               Login button              ***************/
+/************************************************************/
+.navbar-btn {
+margin-top: 8px;
+margin-bottom: 8px;
+margin-left: 10px;
+margin-right: 0px!important;
+}
+
+/**************************************************************/
+/*****               Logo                       ***************/
+/************************************************************/
+.logo {
+    background-image: url('../Images/Logo.png');
+    background-repeat: no-repeat;
+    width: 115px;
+    height: 50px;
+    margin-right: 70px;
+}
+
+/**************************************************************/
+/*****        Popravak responsive dizajna     ***************/
+/************************************************************/
+@media (min-width: 768px) and (max-width: 991px) {
+  .logo {
+      margin-right: 20px;  
+  }
+}
+
+/**************************************************************/
+/*************        Button gold     *************************/
+/************************************************************/
+.btn-gold {
+    color: #fff;
+    background-color: #c79c60;
+    border-color: #fff;
+    outline: none;
+    
+}
+.btn-gold:hover, .btn-gold:active,  .btn-gold:focus{
+    background-color: #a37b44;
+    color: #ffffff;
+    border-color: #c79c60;
+    outline: none;
+} 
+.modal-box-content a{
+    color: #c79c60;
+}
+.modal-box-content a:hover{
+    color: #a37b44;
+}
+
+/**************************************************************/
+/*************     Revolutions Slider postavke   *************/
+/************************************************************/
+.slider-row {
+   margin-top: 42px;
+}
+.gold_thin_white {
+    color: #c79c60;
+    font-family: 'Herr Von Muellerhoff', cursive!important;
+font-size: 56px
+}
+.white_thin {
+    font-size: 24px;
+    color: #fff; 
+    font-family: 'Open Sans', sans-serif;
+}
+
+/**************************************************************/
+/*************     OPIS-SADRZAJA   *************/
+/************************************************************/
+.content-fix {
+    margin-top: 30px;
+}
+.opis-sadrzaja {
+    text-align: center;
+    margin-top: 30px;
+}
+.opis-sadrzaja h1 {
+    color: #a37b44;
+    font-family: 'Herr Von Muellerhoff', cursive!important;
+    font-size: 96px;
+    line-height: 60px;
+    float: left;
+    width: 100%;
+}
+.opis-sadrzaja p {
+    font-size: 24px; color: #333; 
+    font-family: 'Open Sans', sans-serif;
+}
+.opis-sadrzaja span {
+    color: #a37b44;
+    text-transform: uppercase;
+}
+.pozadina-slika, .pozadina-slika2 {
+    background-image: url('../Images/pozadina12.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    
+}
+.pozadina-slika2 {
+    background-image: url('../Images/pozadina13.jpg');
+}
+.pozadina-slika p, .pozadina-slika2 p {
+    color: #fefefe;
+}
+.tamna-podloga, .tamna-podloga-content{
+    padding: 50px 0px !important;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,10,20,.8)!important;
+    margin-bottom: 30px;
+}
+.tamna-podloga-content {
+    padding: 30px 0px !important;
+}
+/******************************/
+/*   	 rs-usluga section       	  */
+/*****************************/
+.rs-usluga-wrap{
+  margin: 45px auto;
+  padding: 10px;
+  border: 1px solid #eee;
+    float: left;
+}
+.rs-usluga-wrap:hover,.rs-usluga-wrap:hover .rs-usluga-content-title{
+  /*border-color: #dedede;*/
+  border-color: #c79c60;
+    -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.rs-usluga-wrap:hover .rs-usluga-content-bottom{
+  border-top-color: #549eb9;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.rs-usluga-wrap:hover .rs-usluga-content-bottom a{
+  color: #549eb9;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.rs-usluga-content-title{
+ margin: 20px auto;
+padding-bottom: 10px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+.rs-usluga-content-title a{
+  display: block;
+   font-family: Oswald, "Helvetica Neue", Helvetica, Arial, sans-serif!important;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5em;
+  text-align: center;
+  color: #c79c60;
+}
+.rs-usluga-content-title a:hover{
+  text-decoration: none;
+  text-align: center;
+  color: #a37b44;
+}
+.rs-usluga-content-intro-text {
+    display: block;
+   font-family: Oswald, "Helvetica Neue", Helvetica, Arial, sans-serif!important;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 2em;
+  text-align: center;
+}
+.rs-usluga-content-text p{
+  font-size: 12px;
+  line-height: 22px;
+  margin-bottom: 18px;
+  float: left;
+  
+}
+/*********************************************/
+/*****     MENI RESTORANA      ***************/
+/*********************************************/
+.rs-meni-hrana {
+    margin-bottom: 20px;
+}
+.rs-meni-hrana-main {
+    float: left;
+    padding: 10px;
+}
+.rs-meni-hrana-slika {
+    border: 1px solid #dedede;
+    margin-right: 20px;
+}
+.rs-meni-hrana-naslov {
+    margin-bottom: 20px;
+}
+.rs-meni-hrana-naslov a{
+    text-decoration: none;
+    font-size: 1.35em;
+    color: #333;
+    border-bottom: 2px solid #c79c60;
+    /*padding-bottom: 10px;*/
+    font-weight: bold;
+    line-height: 1.5em;
+
+}
+.rs-meni-hrana-naslov a:hover{
+    color: #c79c60;
+    -webkit-transition: all 300ms linear 0ms;
+-moz-transition: all 300ms linear 0ms;
+-o-transition: all 300ms linear 0ms;
+-ms-transition: all 300ms linear 0ms;
+transition: all 300ms linear 0ms;
+}
+.rs-meni-hrana-opis p{
+    line-height: 1.8em;
+    color: #888;
+font-size: 1em;
+}
+
+/***********************************************/
+/******         GRESKA Modul          ***************/
+/***********************************************/
+.opis-greske-container {
+    margin: 40px auto;
+}
+.opis-greske-container .btn-gold {
+    max-width: 100%;
+}
+.greska-opis {
+   background-color: rgba(0,10,20,.8)!important;
+    color: #c79c60;
+    padding: 40px 20px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+textarea.greska-txt-area {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+	border: 1px solid #c79c60;
+	padding: 10px;
+	resize: none;
+    outline: none;
+	border-radius: 4px;
+    margin-bottom: 10px;
+}
+.greska-Index {
+    margin: 100px auto;
+}
+
+/***********************************************/
+/******         OBAVIJESTI Modul          ***************/
+/***********************************************/
+
+span.obavijesti-button {
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    top: 14px;
+}
+span.obavijesti-button-active {
+     margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    top: 3px;
+    
+}
+span.obavijesti-button-active a {
+    color: #fff;
+}
+span.obavijesti-button-active a:hover {
+    text-decoration: none;
+}
+span.obavijesti-button-active span {
+    margin-left: 5px;
+}
+/***********************************************/
+/******         UPOSLENIKKORISNIK          ***************/
+/***********************************************/
+
+ul.uposlenik-korisnik-profil-tabela span {
+    width: 150px!important;
+}
+/***********************************************/
+/******         ONLINEKORISNIK          ***************/
+/***********************************************/
+.online-korisnik-container, .prikazi-gresku-container, .uposlenik-korisnik-container {
+    margin: 60px auto;
+    background-color: #fefefe;
+    padding: 40px 20px;
+    float: left;
+    border: 1px solid rgba(0, 10, 20, 0.7);
+}
+.online-korisnik-container-opis p, .prikazi-gresku-container-opis p, .uposlenik-korisnik-container-opis p{
+    padding: 10px;
+    background-color: rgba(0,10,20,0.7);
+    width: 150px;
+    color: #ffffff;
+    position: absolute;
+    top: -19px;
+    margin: 0 auto;
+}
+ul.online-korisnik-profil-tabela, ul.prikazi-gresku-tabela, ul.uposlenik-korisnik-profil-tabela {
+    padding: 10px;
+    list-style-type: none;
+    width: 100%;
+    height: 100%;
+    float: left;
+    margin-bottom: 30px;
+}
+ul.online-korisnik-profil-tabela li, ul.prikazi-gresku-tabela li, ul.uposlenik-korisnik-profil-tabela li {
+     border-bottom-style:dotted; 
+     border-bottom-width:1px;
+     border-bottom-color:#CCCCCC;
+    padding: 6px 0px 3px 0px;
+}
+ul.online-korisnik-profil-tabela span, ul.prikazi-gresku-tabela span, ul.uposlenik-korisnik-profil-tabela span{
+    width: 90px;
+    margin-right: 40px;
+    display: inline-block;
+}
+.online-korisnik-ostale-opcije {
+    margin-bottom: 60px;
+}
+/***********************************************/
+/******         ONLINEKORISNIK - PRIKAZ PONUDE      ***************/
+/***********************************************/
+.korisnici-kategorija {
+    float: left;
+}
+.korisnici-meni-hrana-main:hover {
+    background-color: rgba(0, 10, 20, 0.1);
+    float: left;
+    width: 100%;
+}
+.korisnici-meni-hrana-naslov a{
+    color: #a37b44;
+    font-weight: bold;
+    text-decoration: none;
+
+}
+.korisnici-meni-hrana-opis {
+    color: #656565;
+    font-size: 11px;
+    padding: 5px;
+}
+.korisnici-meni-hrana-cijena{
+    color: #a37b44;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: left;
+    padding-top: 10px;
+}
+.korisnici-meni-hrana-naruci {
+    padding-top: 5px;
+    margin-bottom: 20px;
+}
+.korisnici-kategorija-naslov {
+    margin: 5px 0 30px 0;
+    border: 1px solid rgba(0, 10, 20, 0.1);
+    border-radius: 4px;
+    background-color: rgba(0, 10, 20, 0.1);
+}
+.korisnici-kategorija-naslov h5 {
+    padding: 15px;
+    margin: 0;
+    font-weight: 600;
+    text-align: center;
+}
+.kategorija-glavni-naslov h3 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+        color: #000;
+}
+.kategorija-glavni-naslov {
+    border: 1px solid rgba(0, 10, 20, 0.1);
+    border-radius: 4px;
+    background-color: rgba(0, 10, 20, 0.1);
+    margin: 10px auto;
+}
+.korisnici-odabir-kategorije {
+    margin: 0 auto;
+    padding: 0;
+    background: #dddddd;
+    border-bottom: 1px solid #ddd;
+        width: 100%;
+    text-align: center;
+}
+.korisnici-odabir-kategorije li a:not(:first-child) {
+    padding: 20px;
+}
+.korisnici-odabir-kategorije li {
+    display: block;
+    float: left;
+    margin: 10px 15px;
+    width: 30%;
+}
+.korisnici-odabir-kategorije li a {
+    font-weight: 600;
+}
+.korisnici-odabir-kategorije-list {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    display: block;
+    margin-bottom: -1px;
+    padding: 10px 15px;
+    position: relative;
+    text-decoration: none;
+    color: #000000;
+}
+.korisnici-odabir-kategorije-list:hover {
+    background-color: rgba(0, 10, 20, 0.1);
+    cursor: pointer;
+    text-decoration: none;
+    color: #000000;
+}
+.stol-korpa .korisnici-meni-hrana-body {
+    padding-left: 0;
+}
+/***********************************************/
+/******         FOOTER          ***************/
+/***********************************************/
+footer {
+        background-color: #1f1f1f;
+    color: #fbfbfc;
+    padding: 60px;
+}
+.footer-sadrzaj-naslov {
+    text-align: left;
+    margin-bottom: 20px;
+}
+.footer-sadrzaj-naslov h2 {
+     color: #ffffff;
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+.footer-sadrzaj-content p {
+   width: 100%;
+    display: block;
+    float: left;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.4);
+}
+address {
+    line-height: 2;
+margin-top: 15px;
+margin-bottom: 0;
+}
+address i {
+width: 16px;
+margin-right: 15px;
+}
+.dl-horizontal dt {
+    float: left;
+    overflow: hidden;
+    clear: left;
+    padding-right: 20px;
+    letter-spacing: 1px;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: rgba(255, 255, 255, 0.4);
+}
+.dl-horizontal dd, address, address a {
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.4);
+}
+address a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+a:hover,button,button:hover {
+  -webkit-transition: all 0.35s ease-out;
+  -moz-transition: all 0.35s ease-out;
+  -o-transition: all 0.35s ease-out;
+  -ms-transition: all 0.35s ease-out;
+  transition: all 0.35s ease-out;
+}
+button:focus,a:focus {
+  outline: none;
+}
+a:hover,a:focus {
+  text-decoration: none;
+}
+table,table tr,table td,table tr:hover {
+  -webkit-transition: all 0.15s ease-out;
+  -moz-transition: all 0.15s ease-out;
+  -o-transition: all 0.15s ease-out;
+  -ms-transition: all 0.15s ease-out;
+  transition: all 0.15s ease-out;
+}
+.container.login-container.body-content {
+        position: relative;
+    height: 100vh;
+    width: 100%;
+    background-color: #c79c60;
+}
+.login-form, .modal-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.login-form form, .modal-box-content {
+    padding: 45px;
+     width: 360px;
+    text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+}
+.login-form form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  letter-spacing: 0.5px;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+    height: 100%;
+}
+.login-form h2{
+    font-size: 15px;
+    text-transform: inherit;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+.form-control:focus {
+    border-color: transparent;
+    box-shadow: none;
+}
+.login-form .btn {
+    margin-top: 30px;
+}
+.login-logo {
+    z-index: 100;
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+.login-logo-text {
+        color: #ffffff;
+    font-family: 'Herr Von Muellerhoff', cursive!important;
+        font-size: 26px;
+    margin-top: 30px;
+    line-height: 30px;
+    float: left;
+    width: 100%;
+}
+.navbar-inverse {
+    border-bottom: none;
+}
+.login-form.registration-form form {
+        padding: 25px;
+    width: 500px;
+}
+.login-form.registration-form form input {
+        margin: 0 0 5px;
+    padding: 10px 15px;
+    left: 50px;
+    height: 100%;
+    position: relative;
+}
+ .login-form.registration-form form .btn-gold{
+     background-color: #c79c60;
+}
+ .container-margin-fix {
+     margin-top: 110px !important;
+ }
+
+.stol-odabir {
+    padding-left: 0;
+    padding-right: 0;
+    margin: 30px auto;
+}
+
+.stol-ukupno {
+    float: left;
+    width: 100%;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.stol-ukupno p {
+        padding-top: 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+}
+.stol-ukupno p {
+    color: #c79c60;
+    font-weight: 900;
+}
+.navbar-btn > span {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-right: 10px;
+    position: relative;
+}
+.navbar-btn .btn {
+    padding: 6px 30px;
+    text-align: left;
+}
+.navbar-btn .btn .caret {
+    margin-left: 10px;
+}
+.navbar-right .dropdown-menu {
+    width: 100%;
+    background-color: #c79c60;
+}
+.navbar-right .dropdown-menu li a {
+    padding: 10px 0 10px 15px;
+    color: #fff;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+.navbar-right .dropdown-menu li a:hover {
+    color: #c79c60;
+}
+.navbar-right .dropdown-menu li:last-child a {
+    border-bottom: none;
+    font-weight: 900;
+}
+.registration-form ::-webkit-input-placeholder {
+   color: #333333;
+}
+
+.registration-form :-moz-placeholder { /* Firefox 18- */
+   color: #333333;  
+}
+
+.registration-form ::-moz-placeholder {  /* Firefox 19+ */
+   color: #333333;  
+}
+
+.registration-form :-ms-input-placeholder {  
+   color: #333333;  
+}

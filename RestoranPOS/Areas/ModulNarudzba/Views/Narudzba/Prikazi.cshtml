@@ -1,0 +1,59 @@
+﻿@using System.Runtime.Remoting.Messaging
+@using RestoranPOS.Areas.ModulNarudzba.Models
+@using RestoranPOS.Models
+@model RestoranPOS.Areas.ModulNarudzba.Models.NarudzbaViewModel
+
+
+<h2>Prikazi</h2>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <table class="table table-responsive" style="border-collapse: collapse; padding: 0 !important;">
+            <thead>
+            <tr class="panel-title">
+                <th>Datum Narudzbe</th>
+                <th>Vrijeme Narudzbe</th>
+                <th>Kreirao(username):</th>
+                <th>Kreirana online?</th>
+                <th>Ukupna cijena</th>
+                <th>Prihvacena</th>
+            </tr>
+            </thead>
+            @foreach (NarudzbaViewModel.NarudzbaInfo x in Model.Narudzbe)
+            {
+                <tr>
+                    <td data-toggle="collapse" data-target="#@x.Id.ToString()">@x.DatumNarudzbe.ToShortDateString()</td>
+                    <td data-toggle="collapse" data-target="#@x.Id.ToString()">@x.VrijemeNarudzbe.ToShortTimeString()</td>
+                    <td data-toggle="collapse" data-target="#@x.Id.ToString()">@x.KorisnikUsername</td>
+                    <td data-toggle="collapse" data-target="#@x.Id.ToString()">@x.OnlineNarudzba</td>
+                    <td data-toggle="collapse" data-target="#@x.Id.ToString()">@x.UkupnaCijena</td>
+                    <td data-toggle="collapse" data-target="#@x.Id.ToString()">@x.Prihvacena</td>
+                </tr>
+                <tr>
+                    <td colspan="5" style="padding: 0;">
+                        <div class="collapse" id="@x.Id.ToString()">
+                            <table class="table">
+                                <tr>
+                                    <th>Naziv Proizvoda</th>
+                                    <th>Kolicina</th>
+                                    <th>Cijena</th>
+                                    <th>Ukupno</th>
+                                </tr>
+
+                                @foreach (StavkaNarudzbe s in x.ListaStavki)
+                                {
+                                    <tr>
+                                        <td>@s.Proizvod.Naziv</td>
+                                        <td>@s.Kolicina</td>
+                                        <td>@s.Proizvod.Cijena</td>
+                                        <td>@(s.Kolicina * s.Proizvod.Cijena)</td>
+                                    </tr>
+                                }
+
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

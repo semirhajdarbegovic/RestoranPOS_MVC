@@ -1,0 +1,51 @@
+﻿@using System.Web.Mvc.Html
+@using System.Web.UI.WebControls
+@using RestoranPOS.Migrations
+@using RestoranPOS.Models
+@model RestoranPOS.Areas.ModulRezervacija.Models.RezervacijaViewModel
+
+<div class="form-horizontal">
+    <table class="table" style="background-color: lavender;">
+        @foreach (Stol s in Model.listaStolova)
+        {
+            if (s.Zauzet)
+            {
+                <td align="center">
+                    <button id="takenTable" type="button" onclick="errorTaken();" class="btn btn-lg btn-primary"
+                            style="width: 125px; height: 100px; font-size: 25px; border-color: green;
+                        border-width: 2px;">
+                        @s.BrojStola.ToString()
+                    </button>
+                </td>
+            }
+            if (!s.Zauzet)
+            {
+                <td align="center">
+                    @Html.ActionLink(s.BrojStola.ToString(), "SaveStol", new { stolId = s.Id, rezervacijaId = Model.rezervacija.Id}, new {@class = "btn btn-lg btn-success", type = "submit", style = "width: 125px; height: 100px; font-size: 25px; border-color: blue; border-width: 2px;"})
+                </td>
+            }
+            //<td>@s.Id<br />@s.BrojStola<br />@s.Zauzet</td>
+            if (s.BrojStola%8 == 0)
+            {
+                <tr></tr>
+            }
+
+        }
+    </table>
+    <label id="errorLabel" class="text-danger" style="display: none;"> Odabrani Stol je zauzet u tom periodu, Za uspješno dodavanje molimo kliknite stol sa zelenom podlogom!</label>
+    <button type="button" class="btn btn-warning" data-dismiss="modal" style=" float: right">
+        Odustani
+    </button>
+</div>
+<script type="text/javascript">
+    function errorTaken() {
+        var errorLabel = document.getElementById('errorLabel');
+        errorLabel.style.display = "inline";
+    };
+
+    $(function () {
+        $('#approve-btn').click(function () {
+            $('#modal-container').modal('hide');
+        });
+    });
+</script>

@@ -1,0 +1,39 @@
+﻿@using RestoranPOS.Helper
+@using RestoranPOS.Models
+
+@{
+    Korisnik korisnik = Autentifikacija.GetLogiraniKorisnik(Context);
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        @if (korisnik.Uposlenik != null)
+        {
+            Html.RenderAction("ProfilPocetna", "Profil", new { area = "ModulUposlenici", korisnikId = korisnik.Id });
+        }
+        @*@if (korisnik.Uposlenik != null && korisnik.Uposlenik.Admin == false)
+        {
+            Html.RenderAction("ProfilPocetna", "Profil", new {area="ModulUposlenici", korisnikId = korisnik.Id});
+        }
+        @if (korisnik.Uposlenik.Admin == true)
+        {
+            Html.RenderAction("ProfilPocetna", "Profil", new { area = "ModulUposlenici", korisnikId = korisnik.Id });
+        }
+        @if (korisnik.Uposlenik.Menadzer)
+        {
+            Html.RenderAction("ProfilPocetna", "Profil", new { area = "ModulUposlenici", korisnikId = korisnik.Id });
+        }*@
+        else
+        {
+            
+            Html.RenderAction("Profil", "Profil", new { area = "ModulOnlineKorisnici" });
+        }
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+﻿@using RestoranPOS.Areas.ModulProizvod.Models
+@model RestoranPOS.Areas.ModulProizvod.Models.PrikaziProizvodViewModel
+
+
+
+<h2>PrikaziIzbrisane</h2>
+
+<div>
+    <h4>Izbrisani proizvodi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>IsDeleted</th>
+                <th>Naziv</th>
+                <th>Opis</th>
+                <th>Kolicina</th>
+                <th>Cijena</th>
+                <th>Sifra Proizvoda</th>
+            </tr>
+        </thead>
+
+                @foreach (PrikaziProizvodViewModel.ProizvodInfo x in Model.Proizvodi)
+                {
+                    <tr>
+                        <td>@x.Id</td>
+                        <td>@x.IsDeleted</td>
+                        <td>@x.Naziv</td>
+                        <td>@x.Opis</td>
+                        <td>@x.Kolicina</td>
+                        <td>@x.Cijena</td>
+                        <td>@x.SifraProizvoda</td>
+                        <td>
+                            @Html.ActionLink("Uredi", "Uredi", new { proizvodId = x.Id }, new { @class = "btn btn-default", style = "margin: 2px" })
+                            @Html.ActionLink("Vrati", "Vrati", new { proizvodId = x.Id }, new { @class = "btn btn-default", style = "margin: 2px" })
+                        </td>
+                    </tr>
+                }
+        </table>
+    </dl>
+</div>
+<p>
+    
+    @Html.ActionLink("Natrag", "Prikazi", null, new { @class = "btn btn-default", style = "margin: 2px" })
+</p>

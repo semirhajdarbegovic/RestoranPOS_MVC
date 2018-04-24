@@ -1,0 +1,186 @@
+﻿@model RestoranPOS.Areas.ModulAdmin.Models.RestoranDEViewModel
+
+@{
+    ViewBag.Title = "Uredi";
+}
+
+<h2>Uredi</h2>
+
+@using (Html.BeginForm("Spremi", "Restoran"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>RestoranDEViewModel</h4>
+        <hr/>
+        @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Naziv, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Naziv, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.Naziv, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Adresa, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Adresa, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.Adresa, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BrTelefona, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BrTelefona, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.BrTelefona, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BrPDV, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BrPDV, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.BrPDV, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.VrijednostPDV, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.VrijednostPDV, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.VrijednostPDV, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BrStolova, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BrStolova, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.BrStolova, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MaxRezervacija, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MaxRezervacija, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.MaxRezervacija, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.VrijemeOtvaranja, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.VrijemeOtvaranja, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.VrijemeOtvaranja, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.VrijemeZatvaranja, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.VrijemeZatvaranja, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.VrijemeZatvaranja, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.VrijemeOtvaranjaKuhinje, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.VrijemeOtvaranjaKuhinje, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.VrijemeOtvaranjaKuhinje, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.VrijemeZatvaranjaKuhinje, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.VrijemeZatvaranjaKuhinje, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.VrijemeZatvaranjaKuhinje, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ImaDostavu, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.ImaDostavu)
+                    @Html.ValidationMessageFor(model => model.ImaDostavu, "", new {@class = "text-danger"})
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.InfoEmail, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.InfoEmail, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.InfoEmail, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BannerSlika, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BannerSlika, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.BannerSlika, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OpisRestorana, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OpisRestorana, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.OpisRestorana, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Spremi" class="btn btn-default"/>
+            </div>
+        </div>
+    </div>  
+}
+<div>
+    @Html.ActionLink("Odustani", "Prikazi", null, new { @class = "btn btn-default", style = "margin: 2px" })
+</div>
+<script type="text/javascript">
+        $(function() {
+            $('#VrijemeOtvaranja').datetimepicker({
+                pickDate: false,
+                use24hours: true,
+                format: "HH:mm"
+            });
+        });
+</script>
+<script type="text/javascript">
+        $(function() {
+            $('#VrijemeZatvaranja').datetimepicker({
+                pickDate: false,
+                use24hours: true,
+                format: "HH:mm"
+            });
+        });
+</script>
+<script type="text/javascript">
+        $(function() {
+            $('#VrijemeOtvaranjaKuhinje').datetimepicker({
+                pickDate: false,
+                use24hours: true,
+                format: "HH:mm"
+            });
+        });
+</script>
+<script type="text/javascript">
+            $(function () {
+                $('#VrijemeZatvaranjaKuhinje').datetimepicker({
+                    pickDate: false,
+                    use24hours: true,
+                    format: "HH:mm"
+                });
+            });
+</script>

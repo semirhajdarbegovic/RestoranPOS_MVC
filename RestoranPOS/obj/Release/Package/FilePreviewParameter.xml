@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="si012.app.fit.ba" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Master-PC\\Documents\\Visual\ Studio\ 2015\\Projects\\Restoran_Fax\\RestoranPOS\\RestoranPOS\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Master-PC\\Documents\\Visual\ Studio\ 2015\\Projects\\Restoran_Fax\\RestoranPOS\\RestoranPOS\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="RestoranDBString-Web.config Connection String" description="" value="Data Source=app.fit.ba,1434;Initial Catalog=si012;Integrated Security=false;User ID=si012;Password=npjo!1;MultipleActiveResultSets=true" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Master-PC\\Documents\\Visual\ Studio\ 2015\\Projects\\Restoran_Fax\\RestoranPOS\\RestoranPOS\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='RestoranDBString']/@connectionString" />
+  </parameter>
+</parameters>

@@ -1,0 +1,43 @@
+﻿@model RestoranPOS.Areas.ModulAdmin.Models.PonudaViewModel
+@using RestoranPOS.Areas.ModulAdmin.Models
+@using RestoranPOS.Models
+@{
+    ViewBag.Title = "Prikazi";
+}
+
+<h2>Prikazi</h2>
+
+<div>
+    <h4>PonudaViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+    </dl>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID Ponude</th>
+            <th>Naziv Ponude</th>
+            <th>Vrijedi Od</th>
+            <th>Vrijedi Do</th>
+            <th>Restoran ID</th>
+        </tr>
+        </thead>
+
+        @foreach (PonudaViewModel.PonudaInfo x in Model.Ponude)
+        {
+            <tr>
+                <td>@x.Id</td>
+                <td>@x.NazivPonude</td>
+                <td>@x.VaziOd</td>
+                <td>@x.VaziDo</td>
+                <td>@x.restoranId</td>
+                <td>
+                    @Html.ActionLink("Uredi", "Uredi", new {ponudaId = x.Id}, new { @class = "btn btn-default", style = "margin: 2px" })
+                    @Html.ActionLink("Vrati", "Vrati", new {ponudaId = x.Id}, new { @class = "btn btn-success", style = "margin: 2px" })
+                </td>
+            </tr>
+        }
+    </table>
+    @Html.ActionLink("Natrag","Prikazi", null, new { @class = "btn btn-default", style = "margin: 2px" })
+</div>
+

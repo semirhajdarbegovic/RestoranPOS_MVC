@@ -1,0 +1,182 @@
+﻿@model RestoranPOS.Areas.ModulUposlenici.Models.UposleniciPonudaViewModel
+@using RestoranPOS.Areas.ModulNarudzba.Models
+@using RestoranPOS.Areas.ModulOnlineKorisnici.Models
+@using RestoranPOS.Areas.ModulUposlenici
+@using RestoranPOS.Areas.ModulUposlenici.Models
+@using RestoranPOS.Helper
+@using RestoranPOS.Models
+
+@{
+    Korisnik korisnik = Autentifikacija.GetLogiraniKorisnik(Context);
+}
+
+@*  Prikazi Ponudu
+        <div class="Okorisnici-ponuda">
+            <h2>Specijalna ponuda restorana</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Naziv Ponude</th>
+                        <th>Vrijedi Od</th>
+                        <th>Vrijedi Do</th>
+                    </tr>
+                </thead>
+
+              @foreach (OKPonudaViewModel.PonudaInfo x in Model.Ponude)
+                {
+                    <tr>
+                        <td>@x.NazivPonude</td>
+                        <td>@x.VaziOd.ToShortDateString()</td>
+                        <td>@x.VaziDo.ToShortDateString()</td>
+                    </tr>
+                }
+        </table>
+    </div> *@
+
+
+
+
+<div class="Okorisnici-proizvodi container content-fix container-margin-fix">
+    <!-- Prikazi / Odaberi Stol -->
+    <div class="col-md-12 korisnici-kategorija">
+        <div class="kategorija-glavni-naslov">
+            <h3>
+                Odabrani Stol : @ViewBag.brojStola
+            </h3>
+        </div>
+        <div class="dropdown col-md-12 stol-odabir">
+            <button class="btn btn-lg btn-block btn-gold dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                Odaberite Stol
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu korisnici-odabir-kategorije col-md-6" role="menu" aria-labelledby="dropdownMenu1">
+                @foreach (UposleniciPonudaViewModel.StolInfo x in Model.Stolovi)
+                {
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#"> @Ajax.ActionLink("Broj stola : " + x.BrojStola.ToString(), "PrikaziPonudu", "Naruci", new {Area = "ModulUposlenici", stolID = x.Id}, new AjaxOptions {UpdateTargetId = x.Id.ToString()}, new {@class = "korisnici-odabir-kategorije-list", @role = "menuitem", @tabindex = "-1", @id= string.Format("stolID-{0}", x.Id) })</a></li>
+
+
+                }
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Prikazi / Odaberi kategoriju -->
+    <div class="col-md-3 korisnici-kategorija">
+        <div class="korisnici-kategorija-naslov">
+            <h5>
+                Odaberite kategoriju
+            </h5>
+        </div>
+
+        @foreach (UposleniciPonudaViewModel.KategorijaInfo x in Model.Kategorije)
+        {
+            <ul class="korisnici-odabir-kategorije">
+
+                @Ajax.ActionLink(x.NazivKategorije, "PrikaziPonudu", "Naruci", new {Area = "ModulUposlenici", stolID = @ViewBag.stolId, kategorijaId = x.Id}, new AjaxOptions {UpdateTargetId = x.Id.ToString()}, new {@class = "korisnici-odabir-kategorije-list"})
+
+            </ul>
+        }
+    </div>
+    <!-- Prikazi Proizvode / Ponudu restorana-->
+    <div class="col-md-6">
+        <div class="korisnici-kategorija-naslov">
+            <h5>
+                Odaberite jelo
+            </h5>
+        </div>
+
+        @foreach (UposleniciPonudaViewModel.ProizvodInfo x in Model.Proizvodi)
+        {
+            <article class="korisnici-meni-hrana">
+                <div class="korisnici-meni-hrana-main">
+                    <div class="korisnici-meni-hrana-body col-md-7">
+                        <div class="korisnici-meni-hrana-naslov">
+                            <a href="#">
+                                @x.NazivProizvoda
+                            </a>
+                        </div>
+                        <div class="korisnici-meni-hrana-opis">
+                            <p>
+                                @x.OpisProizvoda
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-2 korisnici-meni-hrana-cijena">
+                        <p>
+                            @x.Cijena KM
+                        </p>
+                    </div>
+                    <div class="col-md-3 korisnici-meni-hrana-naruci">
+                        @Ajax.ActionLink("Naruci", "PrikaziPonudu", "Naruci", new {Area = "ModulUposlenici", stolID = @ViewBag.stolId, kategorijaId = @ViewBag.katId, proizvodId = x.Id, korisnikId = korisnik.Id}, new AjaxOptions {UpdateTargetId = x.Id.ToString()}, new {@class = "btn btn-gold"})
+
+
+                    </div>
+
+                </div>
+            </article>
+        }
+    </div>
+    <div class="col-md-3 stol-korpa">
+        <div class="korisnici-kategorija-naslov">
+            <h5>
+                Korpa
+            </h5>
+        </div>
+        @if ((UposlenikStolNarudzba.UposlenikKorpaViewModels) != null)
+        {
+            foreach (var item in (UposlenikStolNarudzba.UposlenikKorpaViewModels))
+            {
+                if (item.Korpa.StolID == @ViewBag.stolId)
+                {
+                    <article class="korisnici-meni-hrana korpa-item">
+                        <div class="korisnici-meni-hrana-main">
+                            <div class="korisnici-meni-hrana-body col-md-10">
+                                <div class="korisnici-meni-hrana-naslov">
+                                    <a href="#">
+                                        @item.Korpa.Kolicina X @item.Korpa.NazivProizvoda
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-2 korisnici-meni-hrana-cijena">
+                                @item.Korpa.UkupnaCijenaProizvoda KM
+                            </div>
+                            <div class="korisnici-meni-hrana-naruci">
+                                @Ajax.ActionLink("Ukloni", "PrikaziPonudu", "Naruci", new {Area = "ModulUposlenici", stolID = @ViewBag.stolId, kategorijaId = @ViewBag.katId, proizvodId = @item.Korpa.ProizvodId, deleteId = 1}, new AjaxOptions {UpdateTargetId = @item.Korpa.ProizvodId.ToString()}, new {@class = "btn btn-gold"})
+
+
+                            </div>
+                        </div>
+                    </article>
+                }
+
+            }
+
+            <div class="stol-ukupno">
+                <p>Ukupna cijena : @ViewData["Ukupno"] KM</p>
+            </div>
+            <div class="stol-ukupno">
+
+
+                @Html.ActionLink("Zavrsi kupovinu", "KorpaPrikazi", "Naruci", new {Area = "ModulUposlenici", sId = @ViewBag.stolId, kId = korisnik.Id}, new {@class = "btn btn-gold btn-block zavrsi-btn disabled"})
+            </div>
+        }
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    @if (UposleniciZauzetiStolViewModel.stolId != null)
+    {
+        foreach (var item in UposleniciZauzetiStolViewModel.stolId) {
+            <text>
+
+    $("#@item").css("background-color", "yellow");
+            </text>
+        }
+    }
+
+    if ($('.korpa-item').length > 0) {
+        $('.zavrsi-btn').removeClass('disabled');
+    }
+</script>

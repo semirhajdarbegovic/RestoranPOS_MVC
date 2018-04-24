@@ -1,0 +1,85 @@
+﻿@model List<RestoranPOS.Models.Greska>
+
+@{
+    ViewBag.Title = "PrikaziGresku";
+}
+
+ <!-- Content-->
+<div class="content-fix">
+    <div class="tamna-podloga-content">
+        <div class="container">
+            <div class="opis-sadrzaja">
+                <h1>Pregled greške</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Kraj Content-a-->
+<div class="container content-margin-fix">
+
+    <table class="table table-responsive table-bordered">
+        <tr>
+            <th>
+                Datum prijave
+            </th>
+            <th>
+                Vrijeme prijave
+            </th>
+            <th>
+                Opis greske
+            </th>
+            <th>
+                Ispravljena
+            </th>
+            <th>
+                Pregledana
+            </th>
+            <th>
+                Korisnik dodao
+            </th>
+            <th>
+                Prikazi
+            </th>
+        </tr>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>
+                    @x.DatumPrijave.ToShortDateString()
+                </td>
+                <td>
+                    @x.VrijemePrijave.ToShortTimeString()
+                </td>
+                <td>
+                    @x.Opis
+                </td>
+                <td>
+                    @if (x.Ispravljena == false)
+                    {
+                        <span>NE</span>
+                    }
+                    else
+                    {
+                        <span>DA</span>
+                    }
+                </td>
+                <td>
+                    @if (x.Pregledana == false)
+                    {
+                        <span>NE</span>
+                    }
+                    else
+                    {
+                        <span>DA</span>
+                    }
+                </td>
+                <td>
+                    @x.Korisnik.EMail
+                </td>
+                <td>
+                    @Html.ActionLink("Prikazi", "PrikaziDetaljnoGresku", new { greskaId = x.Id })
+                </td>
+            </tr>
+        }
+    </table>
+</div>

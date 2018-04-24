@@ -1,0 +1,15 @@
+﻿@model RestoranPOS.Areas.ModulLogin.Models.LoginViewModel
+
+<div class="login-form">
+
+    @using (Html.BeginForm("Provjera", "Login"))
+    {
+        <h2 class="form-signin-heading">Logiranje na sistem</h2>
+
+        <input type="text" class="form-control" name="username" id="username" placeholder="Korisničko ime" required autofocus>
+
+        <input type="password" class="form-control" id="password" name="password" placeholder="Lozinka" required>
+
+        <button class="btn btn-lg btn-gold btn-block" type="submit">Prijavi se</button>
+    }
+</div> <!-- /container -->

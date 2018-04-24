@@ -1,0 +1,13 @@
+﻿@using RestoranPOS.Helper
+@using RestoranPOS.Models
+
+@{
+    ViewBag.Title = "Profil";
+    Korisnik korisnik = Autentifikacija.GetLogiraniKorisnik(Context);
+}
+
+<h2>Profil</h2>
+
+<div>
+    @Html.ActionLink("Prikazi Podatke", "Prikazi", new { korisnikId  = korisnik.Id})
+</div>

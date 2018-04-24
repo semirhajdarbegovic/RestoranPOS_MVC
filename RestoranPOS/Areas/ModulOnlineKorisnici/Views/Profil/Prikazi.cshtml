@@ -1,0 +1,148 @@
+﻿@model RestoranPOS.Areas.ModulOnlineKorisnici.Models.PrikaziViewModel
+
+<h3>@ViewBag.Poruka</h3>
+<div class="container">
+    <div class="online-korisnik-container col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <div class="online-korisnik-container-opis">
+            <p>
+                Pregled profila
+            </p>
+        </div>
+        <div class="">
+            <ul class="online-korisnik-profil-tabela">
+                <li>
+                    <span>
+                        @Html.DisplayNameFor(model => model.Ime)
+                    </span>
+                    <strong>
+                        @Html.DisplayFor(model => model.Ime)
+                    </strong>
+                </li>
+                <li>
+                    <span>
+                        @Html.DisplayNameFor(model => model.Prezime)
+                    </span>
+                    <strong>@Html.DisplayFor(model => model.Prezime) </strong>
+                </li>
+                <li>
+                    <span>
+                        @Html.DisplayNameFor(model => model.Username)
+                    </span>
+                    <strong>@Html.DisplayFor(model => model.Username) </strong>
+                </li>
+                <li>
+                    <span>
+                        @Html.DisplayNameFor(model => model.Adresa)
+                    </span>
+                    <strong>@Html.DisplayFor(model => model.Adresa) </strong>
+                </li>
+                <li>
+                    <span>
+                        @Html.DisplayNameFor(model => model.BrTelefona)
+                    </span>
+                    <strong>@Html.DisplayFor(model => model.BrTelefona) </strong>
+                </li>
+                <li>
+                    <span>
+                        @Html.DisplayNameFor(model => model.EMail)
+                    </span>
+                    <strong>@Html.DisplayFor(model => model.EMail) </strong>
+                </li>
+            </ul>
+            @Html.ActionLink("Uredi Podatke", "Uredi", new { korisnikId = Model.Id }, new { @class = "btn btn-gold" })
+        </div>
+    </div>
+
+    <div class="online-korisnik-ostale-opcije col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <ul class="list-unstyled">
+            <li><button class="col-md-6 col-lg-6 btn btn-gold" data-toggle="collapse" href="#stavkenarudzbe" aria-expanded="false" aria-controls="stavkenarudzbe"> Pregled stavki nardudzbi</button></li>
+            <li><button class="col-md-6 col-lg-6 btn btn-gold" data-toggle="collapse" href="#stavkerezervacije" aria-expanded="false" aria-controls="stavkerezervacije"> Pregled stavki rezervacija</button></li>
+        </ul>
+        <div class="collapse" id="stavkenarudzbe">
+            <div class="well">
+                <div class="prikazi-stavke">
+                    <h2>Stavke narudzbi</h2>
+                    <table class="table table-striped">
+                        <tr>
+                            <th>Naziv proizvoda</th>
+                            <th>Kolicina</th>
+                            <th>Ukupna Cijena</th>
+                            <th>Datum narudzbe</th>
+                        </tr>
+                        <tr>
+                            @foreach (var x in Model.StavkeNarudzbi)
+                            {
+                                <tr>
+                                    <td>
+                                        @x.Proizvod.Naziv
+                                    </td>
+                                    <td>
+                                        @x.Kolicina
+                                    </td>
+                                    <td>
+                                        @x.Narudzba.UkupnaCijena
+                                    </td>
+                                    <td>
+                                        @x.Narudzba.DatumNarudzbe
+                                    </td>
+                                </tr>
+                            }
+
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="collapse" id="stavkerezervacije">
+            <div class="well">
+                <div>
+                    <h2>Stavke rezervacija</h2>
+                    <table class="table table-striped">
+                        <tr>
+                            <th>Datum rezervacije</th>
+                            <th>Broj osoba</th>
+                        </tr>
+                        
+                            @foreach (var x in Model.ListaRezervacija)
+                            {
+                                <tr>
+                                    <td>
+                                        @x.Datum
+                                    </td>
+                                    <td>
+                                        @x.BrOsoba
+                                    </td>
+                                </tr>
+                            }
+
+                                
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+  @*  <div>
+        <h2>Stavke rezervacija</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Datum rezervacije</th>
+                <th>Broj osoba</th>
+            </tr>
+            <tr>
+                @foreach (var x in Model.ListaRezervacija)
+                {
+                    <td>
+                        @x.Datum
+                    </td>
+                    <td>
+                        @x.BrOsoba
+                    </td>
+                }
+
+            </tr>
+        </table>
+    </div>*@
+</div>

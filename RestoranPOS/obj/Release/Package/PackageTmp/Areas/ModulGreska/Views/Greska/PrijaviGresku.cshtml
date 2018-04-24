@@ -1,0 +1,47 @@
+﻿@using System.Web.UI.WebControls
+@model RestoranPOS.Areas.ModulGreska.Models.UrediGreskuViewModel
+
+
+
+<!-- Content-->
+<div class="content-fix">
+    <div class="tamna-podloga">
+        <div class="container">
+            <div class="opis-sadrzaja">
+                <h1>Prijava greske</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Kraj Content-a-->
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+     
+    <div class="form-horizontal">
+
+       
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="container opis-greske-container">
+            <div class="greska-opis col-md-6 col-lg-6 pull-right">
+                <p>
+                    Za svaku uočenu grešku na sistemu, molimo Vas da unesete opis i kratak sadržaj greške. Pokušajte što detaljnije opisati navedenu grešku,
+                    kako biste našim developerima olakšali posao u otkrivanju greške. Izvinjavamo se zbog neugodnosti koje ste doživljeli, ali sistem je još
+                    uvijek u izgradnji i Vašim doprinosom možete poboljšati sami rad sistema. Zahvaljujemo Vam se na odvojenom vremenu i želji da nam pomognete.
+
+                </p>
+                <p>
+                    Srdačno, Vaš RESTORAN POS tim
+                </p>
+            </div>
+            <div class="form-group col-md-6 col-lg-6">
+
+                @Html.TextAreaFor(model => model.Opis, new {htmlAttributes = new {@class = "form-control"}, placeholder = "Unesite opis greške", rows="8", @class = "greska-txt-area"})
+                @Html.ValidationMessageFor(model => model.Opis, "", new {@class = "text-danger"})
+                <input type="submit" value="Spasi" class="btn btn-gold btn-block" />
+            </div>
+        </div>
+    </div>
+}
+

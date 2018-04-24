@@ -1,0 +1,25 @@
+﻿@using RestoranPOS.Models
+
+@{
+    Layout = null;
+    List<Korisnik> Korisnici = (List<Korisnik>)ViewData["Korisnici"];
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+Imena korisnika: <br/>
+@foreach (Korisnik k in Korisnici)
+{
+    string s = @"Ime:" + k.Ime + ", Prezime:" + k.Prezime + ", Adresa:" + k.Adresa + ", BrTelefona:" + k.BrTelefona + ", EMail:" + k.EMail + ", Nalog aktivan : " + k.NalogAktivan;
+    @s
+    <br/>
+}
+</body>
+
+</html>
